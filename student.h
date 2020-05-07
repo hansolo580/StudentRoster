@@ -1,3 +1,6 @@
+#ifndef STUDENT_H_
+#define STUDENT_H_
+
 #include "degree.h"
 
 using namespace std;
@@ -12,6 +15,7 @@ public:
     DegreeProgram degreeProgram;
     int days[3];
 
+    string getStudentID();
     string getFirstName();
     string getLastName();
     string getEmail();
@@ -26,7 +30,10 @@ public:
     int setDays(int position, int newDay);
     DegreeProgram setDegreeProgram(DegreeProgram);
 
-    Student(string setStudentID, string setFirstName, string setLastName, string setEmail, int setAge, int day1, int day2, int day3, DegreeProgram setDegreeProgram);
+    Student(string setStudentID, string setFirstName, string setLastName, string setEmail, int setAge, int day1,
+            int day2, int day3, DegreeProgram setDegreeProgram);
 
     void print(Student);
 };
+
+#endif

@@ -1,8 +1,14 @@
+#ifndef STUDENT_CPP_
+#define STUDENT_CPP_
+
 #include "student.h"
 #include <string>
 using namespace std;
 
-
+string Student::getStudentID()
+{
+    return studentID;
+}
 
 string Student::getFirstName()
 {
@@ -98,3 +104,5 @@ void Student::print(Student)
     cout << "Degree Program: " + degreeProgram << endl;
     cout << "Days in Courses: " + to_string(days[0]) + ", " + to_string(days[1]) + ", " + to_string(days[2]);
 }
+
+#endif
