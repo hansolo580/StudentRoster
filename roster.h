@@ -2,5 +2,7 @@ using namespace std;
 
 class Roster{
 public:
-    int *classRosterArray[] = {}
+    int *classRosterArray[5] = {
+
+    };
 };

@@ -29,43 +29,54 @@ int Student::getDays()
     return days[0, 1, 2];
 }
 
+DegreeProgram Student::getDegreeProgram()
+{
+    return degreeProgram;
+}
+
 string Student::setStudentID(string newID)
 {
     studentID = newID;
-    return 0;
+    return studentID;
 }
 
 string Student::setFirstName(string newFirst)
 {
     firstName = newFirst;
-    return 0;
+    return firstName;
 }
 
 string Student::setLastName(string newLast)
 {
     lastName = newLast;
-    return 0;
+    return lastName;
 }
 
 string Student::setEmail(string newEmail)
 {
     email = newEmail;
-    return 0;
+    return email;
 }
 
 int Student::setAge(int newAge)
 {
     age = newAge;
-    return 0;
+    return age;
 }
 
 int Student::setDays(int position, int newDay)
 {
     days[position] = newDay;
-    return 0;
+    return days[position];
 }
 
-Student::Student(string setStudentID, string setFirstName, string setLastName, string setEmail, int setAge, int day1, int day2, int day3, string setDegreeProgram) {
+DegreeProgram Student::setDegreeProgram(DegreeProgram programInput)
+{
+    degreeProgram = programInput;
+    return degreeProgram;
+}
+
+Student::Student(string setStudentID, string setFirstName, string setLastName, string setEmail, int setAge, int day1, int day2, int day3, DegreeProgram setDegreeProgram) {
     studentID = setStudentID;
     firstName = setFirstName;
     lastName = setLastName;
