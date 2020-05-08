@@ -7,6 +7,14 @@ using namespace std;
 
 int main()
 {
+    cout << "Course: C867 - Scripting and Programming - Applications \n";
+    cout << "Language: C++ \n";
+    cout << "Student ID: 001213417 \n";
+    cout << "Name: Luke Willey \n \n";
+
+   // int testDays[3] = {1, 2, 3};
+    //Student testStudent = Student("15", "Luke", "Luke", "testemail", 20, testDays, SECURITY);
+    //testStudent.print();
     int numStudents = 5;
     //data input as const string
     const string studentData[] =
@@ -27,4 +35,5 @@ int main()
     cout << "Parsing complete.\n";
     cout << "Displaying full roster:\n";
     rosterTemp->printAll();
+
 }

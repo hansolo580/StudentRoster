@@ -1,4 +1,5 @@
 #include "roster.h"
+#include "student.h"
 using std::cout;
 using std::cerr;
 
@@ -30,6 +31,7 @@ void Roster::parseEntries(string row)
         //studentID
         int rightside = row.find(",");
         string addStudentID = row.substr(0, rightside);
+        cout << "parsing student " + addStudentID + "\n";
 
         //firstName
         int leftside = rightside + 1;
@@ -93,19 +95,51 @@ void Roster::parseEntries(string row)
 void Roster::add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1,
                  int daysInCourse2, int daysInCourse3, DegreeProgram degreeprogram)
 {
-    int Days[Student::countDays];
-    Days[0] = daysInCourse1;
-    Days[1] = daysInCourse2;
-    Days[2] = daysInCourse3;
-    classRosterArray[finalIndex] = new Student(studentID, firstName, lastName, emailAddress, age, Days, degreeprogram);
-    //cout << classRosterArray[0];
-    //cout << classRosterArray[4];
+    int days[Student::countDays];
+    days[0] = daysInCourse1;
+    days[1] = daysInCourse2;
+    days[2] = daysInCourse3;
+    classRosterArray[finalIndex] = new Student(studentID, firstName, lastName, emailAddress, age, days, degreeprogram);
 }
 
 void Roster::printAll()//calls the print method for each entry
 {
-    this->classRosterArray[1]->print();
-    //for (int i = 0; i <= this->finalIndex; i++) (this->classRosterArray)[i]->print();
+    for (int i = 0; i <= this->finalIndex; i++) (this->classRosterArray)[i]->print();
 }
 
 
+void Roster::remove(string studentID)
+{
+    bool found = false;
+    for (int i = 0; i <= finalIndex; i++)
+    {
+        if (this->classRosterArray[i]->getStudentID() == studentID) //Student exists
+        {
+            found = true;
+            //delete the student
+            delete this->classRosterArray[i];
+            this->classRosterArray[i] = this->classRosterArray[finalIndex];
+            finalIndex--;
+            cout << "Student " + studentID + " deleted.";
+        }
+        else
+        {
+            cerr << "Student " + studentID + " does not exist.";
+        }
+    }
+}
+
+void Roster::printAverageDaysInCourse(string studentID)
+{
+
+}
+
+void Roster::printInvalidEmails()
+{
+
+}
+
+void Roster::printByDegreeProgram(DegreeProgram degreeProgram)
+{
+
+}

@@ -23,15 +23,15 @@ Student::Student()//Empty constructor to provide defaults
 }
 
 //Actual constructor
-Student::Student(string studentID, string firstName, string lastName, string email, int age, int days[],
-        DegreeProgram program) {
-    this->studentID;
-    this->firstName;
-    this->lastName;
-    this->email;
-    this->age;
-    for (int i = 0; i<countDays; i++) this->days[i] = days[i];
-    this->program;
+Student::Student(string newStudentID, string newFirstName, string newLastName, string newEmail, int newAge, int newDays[],
+        DegreeProgram newProgram) {
+    this->studentID = newStudentID;
+    this->firstName = newFirstName;
+    this->lastName = newLastName;
+    this->email = newEmail;
+    this->age = newAge;
+    for (int i = 0; i<countDays; i++) this->days[i] = newDays[i];
+    this->program = newProgram;
 }
 
 
@@ -113,12 +113,11 @@ void Student::setDegreeProgram(DegreeProgram programInput)
 void Student::print()
 {
     cout << studentID << "\t";
-    cout << firstName << "\t";
-    cout << lastName << "\t";
-    cout << email << "\t";
-    cout << to_string(age) << "\t";
-    cout << degreeProgramStrings[getDegreeProgram()] << "\t";
-    cout << to_string(days[0]) + ", " + to_string(days[1]) + ", " + to_string(days[2]) << endl;
+    cout << "First Name: " + firstName << "\t";
+    cout << "Last Name: " + lastName << "\t";
+    cout << "Age: " + to_string(age) << "\t";
+    cout << "daysInCourse: " + '{' + to_string(days[0]) + ", " + to_string(days[1]) + ", " + to_string(days[2]) + '}' << "\t";
+    cout << degreeProgramStrings[getDegreeProgram()] << endl;
 }
 
 Student::~Student()
