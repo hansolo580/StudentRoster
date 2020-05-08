@@ -1,21 +1,41 @@
 #include "roster.h"
-#include "degree.h"
+using std::cout;
+using std::cerr;
 
-const string studentData[] =
-        {"A1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY",
-         "A2,Suzan,Erickson,Erickson_1990@gmailcom,19,50,30,40,NETWORK",
-         "A3,Jack,Napoli,The_lawyer99yahoo.com,19,20,40,33,SOFTWARE",
-         "A4,Erin,Black,Erin.black@comcast.net,22,50,58,40,SECURITY",
-         "A5,Luke,Willey,lwi1021@wgu.edu,27,3,1,1,SOFTWARE"};
-
-void Roster::add(string entry){
-    classRosterArray
+Roster::Roster()
+{
+    this->maxSize = 0;
+    this->finalIndex = -1;
+    this->classRosterArray = nullptr;
 }
 
-Roster::Roster() {
-    Roster * dataParser = new Roster();
-    for (int i = 0; i < 5; i++) {
-        dataParser->append(studentData[i]);
+Roster::Roster(int maxSize)
+{
+    this->maxSize = maxSize;
+    this->finalIndex = -1;
+    this->classRosterArray = new Student*[maxSize];
+}
+
+Student * Roster::getStudent(int index)
+{
+    return classRosterArray[index];
+}
+
+void Roster::parseEntries(string row)
+{
+    if (finalIndex < maxSize) {
+        finalIndex++;
+        DegreeProgram degreeProgram;
+        if (std::to_string(degreeProgram) == "SECURITY"){degreeProgram = SECURITY;}
+        else if (std::to_string(degreeProgram) == "NETWORK"){degreeProgram = NETWORK;}
+        else if (std::to_string(degreeProgram) == "SOFTWARE"){degreeProgram = SOFTWARE;}
+        else
+        {
+            cerr << "Invalid degree program. Please confirm data entry. The software will now exit.\n";
+            exit(-1);
+        }
+
+
     }
 }
 
