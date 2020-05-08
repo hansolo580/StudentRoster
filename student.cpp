@@ -23,7 +23,8 @@ Student::Student()//Empty constructor to provide defaults
 }
 
 //Actual constructor
-Student::Student(string studentID, string firstName, string lastName, string email, int age, int days[], DegreeProgram program) {
+Student::Student(string studentID, string firstName, string lastName, string email, int age, int days[],
+        DegreeProgram program) {
     this->studentID;
     this->firstName;
     this->lastName;
@@ -111,13 +112,13 @@ void Student::setDegreeProgram(DegreeProgram programInput)
 
 void Student::print()
 {
-    cout << "Student ID: " + studentID << endl;
-    cout << "First Name: " + firstName << endl;
-    cout << "Last Name: " + lastName << endl;
-    cout << "Email: " + email << endl;
-    cout << "Age: " + to_string(age) << endl;
-    cout << "Degree Program: " + program << endl;
-    cout << "Days in Courses: " + to_string(days[0]) + ", " + to_string(days[1]) + ", " + to_string(days[2]);
+    cout << studentID << "\t";
+    cout << firstName << "\t";
+    cout << lastName << "\t";
+    cout << email << "\t";
+    cout << to_string(age) << "\t";
+    cout << degreeProgramStrings[getDegreeProgram()] << "\t";
+    cout << to_string(days[0]) + ", " + to_string(days[1]) + ", " + to_string(days[2]) << endl;
 }
 
 Student::~Student()

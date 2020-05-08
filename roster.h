@@ -19,7 +19,7 @@ public:
 
     Student* getStudent(int index);
     void parseEntries(string row);//the parser - grabs strings, converts to Student objects, and adds to Roster
-    void add(string studentID, string FirstName, string lastName, string emailAddress, int age, int daysInCourse1,
+    void add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1,
             int daysInCourse2, int daysInCourse3, DegreeProgram degreeprogram); //called in parser to complete the add
     void remove(string studentID); //removes student by roster
     void printAll(); //prints every Student by iterating through Roster and using Student print()
