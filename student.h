@@ -1,39 +1,54 @@
 #ifndef STUDENT_H_
 #define STUDENT_H_
 
+#include <string>
 #include "degree.h"
 
 using namespace std;
 
-class Student {
+class Student{
 public:
+
+    //constant values
+    const static int countDays = 3;
+
+    //Student values
     string studentID;
     string firstName;
     string lastName;
     string email;
     int age;
-    DegreeProgram degreeProgram;
-    int days[3];
+    DegreeProgram program;
+    int days[countDays];
 
+    //Student gets
     string getStudentID();
     string getFirstName();
     string getLastName();
     string getEmail();
     int getAge();
-    int getDays();
+    int* getDays();
     DegreeProgram getDegreeProgram();
-    string setStudentID(string newID);
-    string setFirstName(string newFirst);
-    string setLastName(string newLast);
-    string setEmail(string newEmail);
-    int setAge(int newAge);
-    int setDays(int position, int newDay);
-    DegreeProgram setDegreeProgram(DegreeProgram);
 
-    Student(string setStudentID, string setFirstName, string setLastName, string setEmail, int setAge, int day1,
-            int day2, int day3, DegreeProgram setDegreeProgram);
+    //Student sets
+    void setStudentID(string studentID);
+    void setFirstName(string firstName);
+    void setLastName(string lastName);
+    void setEmail(string email);
+    void setAge(int age);
+    void setDays(int days[]);
+    void setDegreeProgram(DegreeProgram program);
 
-    void print(Student);
+    //Constructors
+    Student();
+    Student(string studentID, string firstName, string lastName, string email, int age, int days[],
+            DegreeProgram program);
+
+    //Other Student Functions
+    void print();
+
+    //Destructors
+    ~Student();
 };
 
 #endif

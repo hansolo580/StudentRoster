@@ -8,7 +8,7 @@ const string studentData[] =
          "A4,Erin,Black,Erin.black@comcast.net,22,50,58,40,SECURITY",
          "A5,Luke,Willey,lwi1021@wgu.edu,27,3,1,1,SOFTWARE"};
 
-void Roster::append(string entry){
+void Roster::add(string entry){
     classRosterArray
 }
 

@@ -2,9 +2,39 @@
 #define STUDENT_CPP_
 
 #include "student.h"
+#include "degree.h"
 #include <string>
-using namespace std;
+#include <iostream>
+#include <iomanip>
 
+using std::cout;
+using std::left;
+using std::setw;
+
+Student::Student()//Empty constructor to provide defaults
+{
+    this->studentID = "";
+    this->firstName = "";
+    this->lastName = "";
+    this->email = "";
+    this->age = 0;
+    for (int i = 0; i<countDays; i++) this->days[i] = 0;
+    //for loop iterates over days array to create [0, 0, 0]
+}
+
+//Actual constructor
+Student::Student(string studentID, string firstName, string lastName, string email, int age, int days[], DegreeProgram program) {
+    this->studentID;
+    this->firstName;
+    this->lastName;
+    this->email;
+    this->age;
+    for (int i = 0; i<countDays; i++) this->days[i] = days[i];
+    this->program;
+}
+
+
+//GETS
 string Student::getStudentID()
 {
     return studentID;
@@ -30,79 +60,69 @@ int Student::getAge()
     return age;
 }
 
-int Student::getDays()
+int * Student::getDays()
 {
-    return days[0, 1, 2];
+    return days;
 }
 
 DegreeProgram Student::getDegreeProgram()
 {
-    return degreeProgram;
+    return program;
 }
 
-string Student::setStudentID(string newID)
+
+//SETS
+void Student::setStudentID(string newID)
 {
     studentID = newID;
-    return studentID;
 }
 
-string Student::setFirstName(string newFirst)
+void Student::setFirstName(string newFirst)
 {
     firstName = newFirst;
-    return firstName;
 }
 
-string Student::setLastName(string newLast)
+void Student::setLastName(string newLast)
 {
     lastName = newLast;
-    return lastName;
 }
 
-string Student::setEmail(string newEmail)
+void Student::setEmail(string newEmail)
 {
     email = newEmail;
-    return email;
 }
 
-int Student::setAge(int newAge)
+void Student::setAge(int newAge)
 {
     age = newAge;
-    return age;
 }
 
-int Student::setDays(int position, int newDay)
+void Student::setDays(int newDays[])
 {
-    days[position] = newDay;
-    return days[position];
+    for (int i = 0; i<countDays; i++)
+        days[i] = newDays[i];
 }
 
-DegreeProgram Student::setDegreeProgram(DegreeProgram programInput)
+void Student::setDegreeProgram(DegreeProgram programInput)
 {
-    degreeProgram = programInput;
-    return degreeProgram;
+    program = programInput;
 }
 
-Student::Student(string setStudentID, string setFirstName, string setLastName, string setEmail, int setAge, int day1, int day2, int day3, DegreeProgram setDegreeProgram) {
-    studentID = setStudentID;
-    firstName = setFirstName;
-    lastName = setLastName;
-    email = setEmail;
-    age = setAge;
-    days[0] = day1;
-    days[1] = day2;
-    days[2] = day3;
-    degreeProgram = setDegreeProgram;
-    }
 
-void Student::print(Student)
+void Student::print()
 {
     cout << "Student ID: " + studentID << endl;
     cout << "First Name: " + firstName << endl;
     cout << "Last Name: " + lastName << endl;
     cout << "Email: " + email << endl;
     cout << "Age: " + to_string(age) << endl;
-    cout << "Degree Program: " + degreeProgram << endl;
+    cout << "Degree Program: " + program << endl;
     cout << "Days in Courses: " + to_string(days[0]) + ", " + to_string(days[1]) + ", " + to_string(days[2]);
+}
+
+Student::~Student()
+{
+
 }
 
 #endif
