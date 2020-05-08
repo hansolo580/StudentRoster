@@ -109,12 +109,11 @@ void Roster::printAll()//calls the print method for each entry
 
 void Roster::remove(string studentID)
 {
-    bool found = false;
+    cout << "\n";
     for (int i = 0; i <= finalIndex; i++)
     {
         if (this->classRosterArray[i]->getStudentID() == studentID) //Student exists
         {
-            found = true;
             //delete the student
             delete this->classRosterArray[i];
             this->classRosterArray[i] = this->classRosterArray[finalIndex];
@@ -123,9 +122,10 @@ void Roster::remove(string studentID)
         }
         else
         {
-            cerr << "Student " + studentID + " does not exist.";
+            cout << "Student " + studentID + " does not exist.";
         }
     }
+    cout << "\n";
 }
 
 void Roster::printAverageDaysInCourse(string studentID)
@@ -144,7 +144,7 @@ void Roster::printAverageDaysInCourse(string studentID)
 
 void Roster::printInvalidEmails()
 {
-    cout << "Printing invalid emails: \n";
+    cout << "\nPrinting invalid emails: \n";
     for (int i = 0; i <= finalIndex; i++) {
         string emailToCheck = classRosterArray[i]->getEmail();
         if (emailToCheck.find("@") == string::npos)
@@ -162,12 +162,23 @@ void Roster::printInvalidEmails()
 
 
     }
+    cout << "\n";
 }
 
 void Roster::printByDegreeProgram(DegreeProgram degreeProgram)
 {
-    cout << "Printing Students in program " << degreeProgramStrings[degreeProgram] << "\n";
+    cout << "\nPrinting Students in program " << degreeProgramStrings[degreeProgram] << ":\n \n";
     for (int i = 0; i <= finalIndex; i++) {
         if (this->classRosterArray[i]->getDegreeProgram() == degreeProgram) this->classRosterArray[i]->print();
     }
+    cout << "\n";
+}
+//DESTRUCTOR
+Roster::~Roster()
+{
+    for (int i = 0; i <= finalIndex; i++)
+    {
+        delete this->classRosterArray[i];
+    }
+    delete classRosterArray;
 }

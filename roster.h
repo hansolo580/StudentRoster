@@ -16,6 +16,7 @@ private:
 public:
     Roster();
     Roster(int maxSize);
+    ~Roster();
 
     Student* getStudent(int index);
     void parseEntries(string row);//the parser - grabs strings, converts to Student objects, and adds to Roster

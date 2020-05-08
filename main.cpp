@@ -35,6 +35,7 @@ int main()
 
     classRoster->printInvalidEmails();
 
+    cout << "Printing average course lengths: \n";
     for (int i = 0; i < numStudents; i++)
     {
         classRoster->printAverageDaysInCourse(classRoster->getStudent(i)->getStudentID());
