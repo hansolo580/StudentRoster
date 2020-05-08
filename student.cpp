@@ -116,7 +116,7 @@ void Student::print()
     cout << "First Name: " + firstName << "\t";
     cout << "Last Name: " + lastName << "\t";
     cout << "Age: " + to_string(age) << "\t";
-    cout << "daysInCourse: " + '{' + to_string(days[0]) + ", " + to_string(days[1]) + ", " + to_string(days[2]) + '}' << "\t";
+    cout << "daysInCourse: " + to_string(days[0]) + ", " + to_string(days[1]) + ", " + to_string(days[2]) << "\t";
     cout << degreeProgramStrings[getDegreeProgram()] << endl;
 }
 

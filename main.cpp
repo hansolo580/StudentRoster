@@ -12,9 +12,6 @@ int main()
     cout << "Student ID: 001213417 \n";
     cout << "Name: Luke Willey \n \n";
 
-   // int testDays[3] = {1, 2, 3};
-    //Student testStudent = Student("15", "Luke", "Luke", "testemail", 20, testDays, SECURITY);
-    //testStudent.print();
     int numStudents = 5;
     //data input as const string
     const string studentData[] =
@@ -23,17 +20,32 @@ int main()
         "A2,Suzan,Erickson,Erickson_1990@gmailcom,19,50,30,40,NETWORK",
         "A3,Jack,Napoli,The_lawyer99yahoo.com,19,20,40,33,SOFTWARE",
         "A4,Erin,Black,Erin.black@comcast.net,22,50,58,40,SECURITY",
-        "A5,Luke,Willey,lwi1021@wgu.edu,27,3,1,1,SOFTWARE"
+        "A5,Luke,Willey,lwi1021@wgu.edu,27,15,15,15,SOFTWARE"
     };
 
-    Roster * rosterTemp = new Roster(numStudents);//Creates the Roster
+    Roster * classRoster = new Roster(numStudents);//Creates the Roster
     cout <<"Reading student data and generating roster:\t";
     for (int i = 0; i < numStudents; i++)
     {
-        rosterTemp->parseEntries(studentData[i]);
+        classRoster->parseEntries(studentData[i]);
     }
     cout << "Parsing complete.\n";
     cout << "Displaying full roster:\n";
-    rosterTemp->printAll();
+    classRoster->printAll();
+
+    classRoster->printInvalidEmails();
+
+    for (int i = 0; i < numStudents; i++)
+    {
+        classRoster->printAverageDaysInCourse(classRoster->getStudent(i)->getStudentID());
+    }
+
+    classRoster->printByDegreeProgram(SOFTWARE);
+
+    classRoster->remove("A3");
+
+    classRoster->printAll();
+
+    classRoster->remove("A3");
 
 }

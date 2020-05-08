@@ -31,7 +31,6 @@ void Roster::parseEntries(string row)
         //studentID
         int rightside = row.find(",");
         string addStudentID = row.substr(0, rightside);
-        cout << "parsing student " + addStudentID + "\n";
 
         //firstName
         int leftside = rightside + 1;
@@ -120,7 +119,7 @@ void Roster::remove(string studentID)
             delete this->classRosterArray[i];
             this->classRosterArray[i] = this->classRosterArray[finalIndex];
             finalIndex--;
-            cout << "Student " + studentID + " deleted.";
+            cout << "Student " + studentID + " deleted. \n";
         }
         else
         {
@@ -131,15 +130,44 @@ void Roster::remove(string studentID)
 
 void Roster::printAverageDaysInCourse(string studentID)
 {
-
+    bool found = false;
+    for (int i = 0; i <= finalIndex; i++)
+    {
+        if (this->classRosterArray[i]->getStudentID() == studentID) //Student exists
+        {
+            found = true;
+            int* d = classRosterArray[i]->getDays();
+            cout << "Average days in course " << studentID << " is " << (d[0] + d[1] + d[2]) / 3 << "\n";
+        }
+    }
 }
 
 void Roster::printInvalidEmails()
 {
+    cout << "Printing invalid emails: \n";
+    for (int i = 0; i <= finalIndex; i++) {
+        string emailToCheck = classRosterArray[i]->getEmail();
+        if (emailToCheck.find("@") == string::npos)
+        {
+            cout << emailToCheck << "\n";
+        }
+        else if (emailToCheck.find(".") == string::npos)
+        {
+            cout << emailToCheck << "\n";
+        }
+        else if (emailToCheck.find(" ") != string::npos)
+        {
+            cout << emailToCheck << "\n";
+        }
 
+
+    }
 }
 
 void Roster::printByDegreeProgram(DegreeProgram degreeProgram)
 {
-
+    cout << "Printing Students in program " << degreeProgramStrings[degreeProgram] << "\n";
+    for (int i = 0; i <= finalIndex; i++) {
+        if (this->classRosterArray[i]->getDegreeProgram() == degreeProgram) this->classRosterArray[i]->print();
+    }
 }
