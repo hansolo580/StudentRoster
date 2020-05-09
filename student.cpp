@@ -112,11 +112,11 @@ void Student::setDegreeProgram(DegreeProgram programInput)
 
 void Student::print()
 {
-    cout << studentID << "\t";
-    cout << "First Name: " + firstName << "\t";
-    cout << "Last Name: " + lastName << "\t";
-    cout << "Age: " + to_string(age) << "\t";
-    cout << "daysInCourse: " + to_string(days[0]) + ", " + to_string(days[1]) + ", " + to_string(days[2]) << "\t";
+    cout << Student::getStudentID() << "\t";
+    cout << "First Name: " + Student::getFirstName() << "\t";
+    cout << "Last Name: " + Student::getLastName() << "\t";
+    cout << "Age: " + to_string(Student::getAge()) << "\t";
+    cout << "daysInCourse: " + to_string(Student::getDays()[0]) + ", " + to_string(Student::getDays()[1]) + ", " + to_string(Student::getDays()[2]) << "\t";
     cout << degreeProgramStrings[getDegreeProgram()] << endl;
 }
 
